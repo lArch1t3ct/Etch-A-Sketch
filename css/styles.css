@@ -9,12 +9,16 @@
 
     display: flex;
     flex-wrap: wrap;
+    gap:2px;
     max-width: 300px;
-    gap: 2px;
 }
 
 .pixel-div {
     border: 1px solid black;
     width: 16px;
     height: 16px;
+}
+
+.mouse-over {
+    background-color: yellow;
 }
