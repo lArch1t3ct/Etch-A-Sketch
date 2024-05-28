@@ -5,20 +5,17 @@
 }
 
 .div-container {
-    border: 2px dotted red;
+    border: 3px solid red;
 
     display: flex;
     flex-wrap: wrap;
-    gap:2px;
-    max-width: 300px;
 }
 
 .pixel-div {
-    border: 1px solid black;
     width: 16px;
     height: 16px;
 }
 
 .mouse-over {
-    background-color: yellow;
+    background-color: black;
 }

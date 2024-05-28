@@ -1,14 +1,31 @@
-const divContainer = document.querySelector('.div-container');
 const GRID_DIV = 'pixel-div';
-const HOVER_EFFECT = 'mouse-over'
+const HOVER_EFFECT = 'mouse-over';
 
-for(let i = 0; i < 16; i++){
-    for(let j = 0; j < 16; j++){
-        const pixelDiv = document.createElement('div');
-        pixelDiv.classList.toggle(GRID_DIV);
-        divContainer.appendChild(pixelDiv);
+const divContainer = document.querySelector('.div-container');
+const resetButton = document.querySelector("#reset");
+
+resetButton.addEventListener('click', () => {
+    divContainer.replaceChildren();
+
+    let userDimension;
+    do {
+        userDimension = prompt("How many divs per row?", 16);
+    } while (userDimension > 100);
+
+    const divs_per_side = userDimension ?? 16;
+    console.log(divs_per_side);
+    divContainer.style["max-width"] = `${divs_per_side * 16 + 6}px`;
+
+    for(let i = 0; i < divs_per_side; i++){
+        for(let j = 0; j < divs_per_side; j++){
+            const pixelDiv = document.createElement('div');
+            pixelDiv.classList.toggle(GRID_DIV);
+            divContainer.appendChild(pixelDiv);
+        }
     }
-}
+});
+
+
 
 divContainer.addEventListener('mouseover', (event) => {
     if(event.target.classList.contains(GRID_DIV)){ // classList returns a DOMTokenList
