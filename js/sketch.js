@@ -13,7 +13,6 @@ resetButton.addEventListener('click', () => {
     } while (userDimension > 100);
 
     const divs_per_side = userDimension ?? 16;
-    console.log(divs_per_side);
     divContainer.style["max-width"] = `${divs_per_side * 16 + 6}px`;
 
     for(let i = 0; i < divs_per_side; i++){
@@ -28,7 +27,14 @@ resetButton.addEventListener('click', () => {
 
 
 divContainer.addEventListener('mouseover', (event) => {
+    const RED = Math.floor(Math.random() * 255);
+    const GREEN = Math.floor(Math.random() * 255);
+    const BLUE = Math.floor(Math.random() * 255);
+
     if(event.target.classList.contains(GRID_DIV)){ // classList returns a DOMTokenList
-        event.target.classList.add(HOVER_EFFECT);
+        if(!event.target.style["background-color"].includes("rgb")){
+            event.target.style["background-color"] = `rgb(${RED}, ${BLUE}, ${GREEN})`;
+        }
+        
     }
 });
