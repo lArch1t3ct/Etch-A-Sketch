@@ -25,16 +25,17 @@ resetButton.addEventListener('click', () => {
 });
 
 
-
+let everyTen = 0;
 divContainer.addEventListener('mouseover', (event) => {
-    const RED = Math.floor(Math.random() * 255);
-    const GREEN = Math.floor(Math.random() * 255);
-    const BLUE = Math.floor(Math.random() * 255);
-
     if(event.target.classList.contains(GRID_DIV)){ // classList returns a DOMTokenList
-        if(!event.target.style["background-color"].includes("rgb")){
-            event.target.style["background-color"] = `rgb(${RED}, ${BLUE}, ${GREEN})`;
+        if(event.target.style.getPropertyValue('opacity') === ""){
+            event.target.classList.add(HOVER_EFFECT);
+            event.target.style.opacity = `${everyTen / 10}`;
+            everyTen++;
         }
         
+        if(everyTen > 10){
+            everyTen = 0; // reset
+        }
     }
 });
