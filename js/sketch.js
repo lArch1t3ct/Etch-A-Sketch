@@ -13,7 +13,6 @@ resetButton.addEventListener('click', () => {
     } while (userDimension > 100);
 
     const divs_per_side = userDimension ?? 16;
-    console.log(divs_per_side);
     divContainer.style["max-width"] = `${divs_per_side * 16 + 6}px`;
 
     for(let i = 0; i < divs_per_side; i++){
